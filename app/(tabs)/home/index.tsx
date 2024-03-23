@@ -9,9 +9,9 @@ const TabHomePage = () => {
   return (
     <SafeAreaView className="flex-1 p-4 pt-12 bg-white pb-10">
       <View className="flex-row justify-between">
-        <View className="flex-row items-center gap-2">
+        <View className="flex-row items-center gap-2 my-3">
           <MaterialCommunityIcons name="map-marker-outline" size={28} />
-          <Text className="text-lg">Your Address Here</Text>
+          <Text className="text-xl font-semibold">Your Address Here</Text>
         </View>
       </View>
 
