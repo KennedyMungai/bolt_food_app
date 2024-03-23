@@ -77,6 +77,9 @@ const RestaurantDetails = ({ details }: Props) => {
               scrollEnabled={false}
               keyExtractor={(item, index) => `${item}-${index}`}
               renderItem={renderItem}
+              ItemSeparatorComponent={() => (
+                <View className="h-[1px] bg-neutral-800 w-[90%] text-center ml-6" />
+              )}
             />
           </View>
         </View>
