@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image } from 'react-native';
+import Animated from 'react-native-reanimated';
 
 import ParallaxScrollView from '../components/parallax-scroll-view';
-import Animated from 'react-native-reanimated';
+
+import { sharedElementTransition } from '~/utils/shared-element-transition';
 
 type Props = {
   details: RestaurantDetails;
@@ -21,6 +22,7 @@ const RestaurantDetails = ({ details }: Props) => {
             style={{ backgroundColor: 'white' }}
             source={{ uri: details.profileImage }}
             sharedTransitionTag={`image-${details.id}`}
+            sharedTransitionStyle={sharedElementTransition}
           />
         )}
       />
