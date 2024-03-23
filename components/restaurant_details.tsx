@@ -13,7 +13,7 @@ const RestaurantDetails = ({ details }: Props) => {
       <ParallaxScrollView
         styles={{ flex: 1 }}
         backgroundColor="white"
-        parallaxHeaderHeight={200}
+        parallaxHeaderHeight={400}
         renderBackground={() => (
           <Image
             className="w-full h-full"
