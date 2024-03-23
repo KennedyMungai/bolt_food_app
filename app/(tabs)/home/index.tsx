@@ -8,7 +8,7 @@ const TabHomePage = () => {
       <View className="flex-row justify-between">
         <View className="flex-row items-center gap-2">
           <MaterialCommunityIcons name="map-marker-outline" size={28} />
-          <Text className="text-lg">Your Address</Text>
+          <Text className="text-lg">Your Address Here</Text>
         </View>
       </View>
     </SafeAreaView>
