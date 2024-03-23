@@ -10,7 +10,7 @@ export default function RootLayout() {
       <Stack.Screen
         name="storeDetails/[storeDetails]"
         options={{
-          headerTransparent: false,
+          headerTransparent: true,
           animation: 'slide_from_right',
           animationDuration: 300,
         }}
