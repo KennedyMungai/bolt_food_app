@@ -19,6 +19,7 @@ const RestaurantDetails = ({ details }: Props) => {
       <ParallaxScrollView
         styles={{ flex: 1 }}
         backgroundColor="white"
+        showsVerticalScrollIndicator={false}
         parallaxHeaderHeight={400}
         renderBackground={() => (
           <Animated.Image
@@ -38,6 +39,16 @@ const RestaurantDetails = ({ details }: Props) => {
               <Ionicons name="star" size={24} color={ratingColor} />
               <Text className="text-xl font-semibold">{details.rating}</Text>
             </View>
+          </View>
+          <View className="flex flex-row items-center gap-2 my-2">
+            <Ionicons name="bicycle-outline" size={24} />
+            <Text className="text-neutral-500 font-semibold text-xl">Delivery</Text>
+            <Text className="text-neutral-500 font-semibold text-xl"> . </Text>
+            <Ionicons name="walk-outline" size={24} />
+            <Text className="text-neutral-500 font-semibold text-xl">Walking</Text>
+            <Text className="text-neutral-500 font-semibold text-xl"> . </Text>
+            <Text className="text-neutral-500 font-semibold text-xl">More Info</Text>
+            <Ionicons name="chevron-forward-outline" size={24} className="text-neutral-500" />
           </View>
         </View>
       </ParallaxScrollView>
