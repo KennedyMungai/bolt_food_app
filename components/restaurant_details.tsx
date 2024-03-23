@@ -50,6 +50,7 @@ const RestaurantDetails = ({ details }: Props) => {
             <Text className="text-neutral-500 font-semibold text-xl">More Info</Text>
             <Ionicons name="chevron-forward-outline" size={24} className="text-neutral-500" />
           </View>
+          <Text className="text-sm font-semibold text-neutral-800 leading-6">{details.about}</Text>
         </View>
       </ParallaxScrollView>
     </>
