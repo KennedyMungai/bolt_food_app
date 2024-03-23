@@ -11,6 +11,7 @@ export default function RootLayout() {
         name="storeDetails/[storeDetails]"
         options={{
           headerTransparent: true,
+          headerTitle: '',
           animation: 'slide_from_right',
           animationDuration: 300,
         }}
