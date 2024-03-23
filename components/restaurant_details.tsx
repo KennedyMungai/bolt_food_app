@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ListRenderItem, SectionList, Text, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
 import ParallaxScrollView from '../components/parallax-scroll-view';
@@ -13,6 +13,22 @@ type Props = {
 
 const RestaurantDetails = ({ details }: Props) => {
   const ratingColor = details.rating > 4.5 ? '#ffd700' : 'black';
+
+  const data = details.food.map((item, index) => ({
+    title: item.category,
+    data: item.meals,
+    index,
+  }));
+
+  const renderItem: ListRenderItem<Meal> = ({ item, index }) => (
+    <TouchableOpacity className="px-4">
+      <View className="flex flex-1 my-4 mr-8">
+        <Text className="text-lg font-semibold text-neutral-600">{item.name}</Text>
+        <Text className="text-sm text-[#6e6d72] font-semibold">{item.info}</Text>
+        <Text className="text-base text-stone-500 font-semibold">$ {item.price}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <>
@@ -51,6 +67,17 @@ const RestaurantDetails = ({ details }: Props) => {
             <Ionicons name="chevron-forward-outline" size={24} className="text-neutral-500" />
           </View>
           <Text className="font-semibold text-neutral-800 leading-6">{details.about}</Text>
+        </View>
+
+        <View>
+          <View className="my-6">
+            <SectionList
+              sections={data}
+              scrollEnabled={false}
+              keyExtractor={(item, index) => `${item}-${index}`}
+              renderItem={renderItem}
+            />
+          </View>
         </View>
       </ParallaxScrollView>
     </>
