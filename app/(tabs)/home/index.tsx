@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 const TabHomePage = () => {
   return (
-    <View>
+    <View className="flex-1">
       <Text>TabHomePage</Text>
     </View>
   );
