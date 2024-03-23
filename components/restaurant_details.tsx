@@ -21,7 +21,7 @@ const RestaurantDetails = ({ details }: Props) => {
   }));
 
   const renderItem: ListRenderItem<Meal> = ({ item, index }) => (
-    <TouchableOpacity className="px-4 flex flex-row justify-between items-center">
+    <TouchableOpacity className="px-4 flex flex-row justify-between items-center my-2">
       <View className="flex flex-1 my-4 mr-8">
         <Text className="text-lg font-semibold text-neutral-600">{item.name}</Text>
         <Text className="text-sm text-[#6e6d72] font-semibold">{item.info}</Text>
