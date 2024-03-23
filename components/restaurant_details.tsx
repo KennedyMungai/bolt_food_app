@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { ListRenderItem, SectionList, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ListRenderItem, SectionList, Text, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
 import ParallaxScrollView from '../components/parallax-scroll-view';
@@ -21,12 +21,13 @@ const RestaurantDetails = ({ details }: Props) => {
   }));
 
   const renderItem: ListRenderItem<Meal> = ({ item, index }) => (
-    <TouchableOpacity className="px-4">
+    <TouchableOpacity className="px-4 flex flex-row justify-between items-center">
       <View className="flex flex-1 my-4 mr-8">
         <Text className="text-lg font-semibold text-neutral-600">{item.name}</Text>
         <Text className="text-sm text-[#6e6d72] font-semibold">{item.info}</Text>
         <Text className="text-base text-stone-500 font-semibold">$ {item.price}</Text>
       </View>
+      <Image source={{ uri: item.img }} className="w-20 h-20 rounded-full" />
     </TouchableOpacity>
   );
 
