@@ -1,7 +1,11 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 
-const RestaurantDetails = () => {
+type Props = {
+  details: RestaurantDetails;
+};
+
+const RestaurantDetails = ({ details }: Props) => {
   return (
     <SafeAreaView className="px-2 pt-28 bg-white flex-1">
       <View>

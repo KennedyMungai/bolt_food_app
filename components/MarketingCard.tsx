@@ -3,10 +3,8 @@ import { Link } from 'expo-router';
 import React from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
 
-import { dummyRestaurantsData } from '~/assets/data/restaurantData';
-
 type Props = {
-  data: (typeof dummyRestaurantsData)[0];
+  data: RestaurantDetails;
 };
 
 const MarketingCard = ({ data }: Props) => {
