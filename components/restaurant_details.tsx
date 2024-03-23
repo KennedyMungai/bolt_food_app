@@ -77,11 +77,12 @@ const RestaurantDetails = ({ details }: Props) => {
               scrollEnabled={false}
               keyExtractor={(item, index) => `${item}-${index}`}
               renderItem={renderItem}
-              ItemSeparatorComponent={() => (
-                <View className="h-[1px] bg-neutral-800 w-[90%] text-center ml-6" />
-              )}
+              ItemSeparatorComponent={() => <View className="h-[1px] bg-neutral-500 text-center" />}
               SectionSeparatorComponent={() => (
-                <View className="h-[2px] bg-neutral-600 w-[90%] text-center ml-6" />
+                <View className="h-[2px] bg-neutral-600 text-center" />
+              )}
+              renderSectionHeader={({ section: { title, index } }) => (
+                <Text className="text-2xl font-semibold my-4 ml-4">{title}</Text>
               )}
             />
           </View>
