@@ -1,8 +1,12 @@
 import '../global.css';
 
-import { Stack } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Stack, useNavigation } from 'expo-router';
+import { TouchableOpacity } from 'react-native';
 
 export default function RootLayout() {
+  const navigation = useNavigation();
+
   return (
     <Stack>
       <Stack.Screen name="index" />
@@ -12,6 +16,21 @@ export default function RootLayout() {
         options={{
           headerTransparent: true,
           headerTitle: '',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Ionicons
+                name="chevron-back"
+                size={30}
+                style={{
+                  marginRight: 20,
+                  color: 'black',
+                  backgroundColor: '#FFFFFF95',
+                  borderRadius: 20,
+                  padding: 5,
+                }}
+              />
+            </TouchableOpacity>
+          ),
         }}
       />
     </Stack>
