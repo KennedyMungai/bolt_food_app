@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import React from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native';
 
 type Props = {
   data: RestaurantDetails;
@@ -12,7 +12,7 @@ const MarketingCard = ({ data }: Props) => {
 
   return (
     <Link href={`/storeDetails/${data.id}`} asChild>
-      <Pressable className="mt-4 shadow-sm">
+      <TouchableOpacity className="mt-4">
         <View>
           <Image
             source={{ uri: data.profileImage }}
@@ -31,7 +31,7 @@ const MarketingCard = ({ data }: Props) => {
           </View>
         </View>
         <Text className="text-neutral-500 font-semibold text-xl">$ {data.price}</Text>
-      </Pressable>
+      </TouchableOpacity>
     </Link>
   );
 };
