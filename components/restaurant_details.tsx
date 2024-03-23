@@ -80,6 +80,9 @@ const RestaurantDetails = ({ details }: Props) => {
               ItemSeparatorComponent={() => (
                 <View className="h-[1px] bg-neutral-800 w-[90%] text-center ml-6" />
               )}
+              SectionSeparatorComponent={() => (
+                <View className="h-[2px] bg-neutral-600 w-[90%] text-center ml-6" />
+              )}
             />
           </View>
         </View>
