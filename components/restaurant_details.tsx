@@ -27,7 +27,7 @@ const RestaurantDetails = ({ details }: Props) => {
         <Text className="text-sm text-[#6e6d72] font-semibold">{item.info}</Text>
         <Text className="text-base text-stone-500 font-semibold">$ {item.price}</Text>
       </View>
-      <Image source={{ uri: item.img }} className="w-20 h-20 rounded-full" />
+      <Image source={{ uri: item.img }} className="w-20 h-20 rounded-full" resizeMode="cover" />
     </TouchableOpacity>
   );
 
