@@ -1,4 +1,4 @@
-import Animated, { SharedTransition, withSpring, WithSpringConfig } from 'react-native-reanimated';
+import { SharedTransition, withSpring } from 'react-native-reanimated';
 
 const SPRING_CONFIG = {
   mass: 1,
