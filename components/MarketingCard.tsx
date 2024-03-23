@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import React from 'react';
 import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 
 type Props = {
   data: RestaurantDetails;
@@ -14,10 +15,11 @@ const MarketingCard = ({ data }: Props) => {
     <Link href={`/storeDetails/${data.id}`} asChild>
       <TouchableOpacity className="mt-4">
         <View>
-          <Image
+          <Animated.Image
             source={{ uri: data.profileImage }}
             className="w-full rounded-md aspect-video"
             resizeMode="cover"
+            sharedTransitionTag={`image-${data.id}`}
           />
           <Text className="absolute bottom-2 right-2 bg-white/80 p-2 rounded-sm">
             {data.delivery} min

@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 
 import ParallaxScrollView from '../components/parallax-scroll-view';
+import Animated from 'react-native-reanimated';
 
 type Props = {
   details: RestaurantDetails;
@@ -15,10 +16,11 @@ const RestaurantDetails = ({ details }: Props) => {
         backgroundColor="white"
         parallaxHeaderHeight={400}
         renderBackground={() => (
-          <Image
+          <Animated.Image
             className="w-full h-full"
             style={{ backgroundColor: 'white' }}
             source={{ uri: details.profileImage }}
+            sharedTransitionTag={`image-${details.id}`}
           />
         )}
       />

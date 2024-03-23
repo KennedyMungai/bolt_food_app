@@ -12,8 +12,6 @@ export default function RootLayout() {
         options={{
           headerTransparent: true,
           headerTitle: '',
-          animation: 'slide_from_right',
-          animationDuration: 300,
         }}
       />
     </Stack>
