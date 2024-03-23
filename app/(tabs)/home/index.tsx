@@ -1,6 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
+import MarketingCard from '~/components/MarketingCard';
 
 const TabHomePage = () => {
   return (
@@ -11,6 +12,8 @@ const TabHomePage = () => {
           <Text className="text-lg">Your Address Here</Text>
         </View>
       </View>
+
+      <MarketingCard />
     </SafeAreaView>
   );
 };
