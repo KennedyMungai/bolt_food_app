@@ -1,5 +1,7 @@
 import React from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { Image } from 'react-native';
+
+import ParallaxScrollView from '../components/parallax-scroll-view';
 
 type Props = {
   details: RestaurantDetails;
@@ -7,11 +9,20 @@ type Props = {
 
 const RestaurantDetails = ({ details }: Props) => {
   return (
-    <SafeAreaView className="px-2 pt-28 bg-white flex-1">
-      <View>
-        <Text>RestaurantDetails</Text>
-      </View>
-    </SafeAreaView>
+    <>
+      <ParallaxScrollView
+        styles={{ flex: 1 }}
+        backgroundColor="white"
+        parallaxHeaderHeight={200}
+        renderBackground={() => (
+          <Image
+            className="w-full h-full"
+            style={{ backgroundColor: 'white' }}
+            source={{ uri: details.profileImage }}
+          />
+        )}
+      />
+    </>
   );
 };
 
