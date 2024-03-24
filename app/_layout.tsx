@@ -45,7 +45,7 @@ export default function RootLayout() {
                     color: 'black',
                     backgroundColor: '#FFFFFF95',
                     borderRadius: 20,
-                    padding: 5,
+                    padding: 10,
                   }}
                 />
               </TouchableOpacity>
