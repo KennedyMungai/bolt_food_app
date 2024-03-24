@@ -53,6 +53,14 @@ export default function RootLayout() {
           ),
         }}
       />
+      <Stack.Screen
+        name="(modals)/item/[itemDetails]"
+        options={{
+          presentation: 'modal',
+          animation: 'slide_from_bottom',
+          animationDuration: 300,
+        }}
+      />
     </Stack>
   );
 }
