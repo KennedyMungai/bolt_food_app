@@ -1,7 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
-import { Image, ListRenderItem, SectionList, Text, TouchableOpacity, View } from 'react-native';
-import Animated from 'react-native-reanimated';
+import React, { useState } from 'react';
+import {
+  Image,
+  ListRenderItem,
+  ScrollView,
+  SectionList,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 import ParallaxScrollView from '../components/parallax-scroll-view';
 
@@ -12,6 +20,43 @@ type Props = {
 };
 
 const RestaurantDetails = ({ details }: Props) => {
+  const [headerIconColor, setHeaderIconColor] = useState('white');
+  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+
+  const opacity = useSharedValue(0);
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    opacity: withTiming(opacity.value),
+  }));
+
+  const handleScroll = (event: any) => {
+    const scrollPosition = event.nativeEvent.contentOffset.y;
+
+    data.forEach((category, index) => {
+      const sectionTop = index * 260;
+      const sectionBottom = (index + 1) * 260;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        setActiveCategoryIndex(index);
+      }
+    });
+
+    setActiveButtonIndex(activeButtonIndex);
+
+    if (scrollPosition > 80) {
+      setHeaderIconColor('black');
+      opacity.value = withTiming(1);
+    } else {
+      setHeaderIconColor('white');
+      opacity.value = withTiming(0);
+    }
+  };
+
+  const selectCategory = (index: number) => {
+    setActiveButtonIndex(index);
+  };
+
   const ratingColor = details.rating > 4.5 ? '#ffd700' : 'black';
 
   const data = details.food.map((item, index) => ({
@@ -86,6 +131,28 @@ const RestaurantDetails = ({ details }: Props) => {
           </View>
         </View>
       </ParallaxScrollView>
+
+      <Animated.View>
+        <View className="justify-center pt-2 bg-white">
+          <ScrollView
+            horizontal
+            // showHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingHorizontal: 15,
+              alignItems: 'center',
+              gap: 10,
+            }}>
+            {details.food.map((food, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => selectCategory(index)}
+                className={activeButtonIndex === index ? '' : ''}>
+                <Text className={activeButtonIndex === index ? '' : ''}>{food.category}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+      </Animated.View>
     </>
   );
 };
