@@ -20,7 +20,6 @@ type Props = {
 };
 
 const RestaurantDetails = ({ details }: Props) => {
-  const [headerIconColor, setHeaderIconColor] = useState('white');
   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
@@ -42,13 +41,11 @@ const RestaurantDetails = ({ details }: Props) => {
       }
     });
 
-    setActiveButtonIndex(activeButtonIndex);
+    setActiveButtonIndex(activeCategoryIndex);
 
     if (scrollPosition > 80) {
-      setHeaderIconColor('black');
       opacity.value = withTiming(1);
     } else {
-      setHeaderIconColor('white');
       opacity.value = withTiming(0);
     }
   };
@@ -93,7 +90,8 @@ const RestaurantDetails = ({ details }: Props) => {
             sharedTransitionStyle={sharedElementTransition}
           />
         )}
-        stickyHeaderHeight={100}>
+        stickyHeaderHeight={100}
+        scrollEvent={handleScroll}>
         <View className="p-4">
           <View className="flex flex-row justify-between">
             <Text className="text-3xl font-bold text-neutral-500">{details.name}</Text>
