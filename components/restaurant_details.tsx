@@ -14,6 +14,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 import ParallaxScrollView from '../components/parallax-scroll-view';
 
 import { sharedElementTransition } from '~/utils/shared-element-transition';
+import { Link } from 'expo-router';
 
 type Props = {
   details: RestaurantDetails;
@@ -63,14 +64,16 @@ const RestaurantDetails = ({ details }: Props) => {
   }));
 
   const renderItem: ListRenderItem<Meal> = ({ item, index }) => (
-    <TouchableOpacity className="px-4 flex flex-row justify-between items-center my-2">
-      <View className="flex flex-1 my-4 mr-8">
-        <Text className="text-lg font-semibold text-neutral-600">{item.name}</Text>
-        <Text className="text-sm text-[#6e6d72] font-semibold">{item.info}</Text>
-        <Text className="text-base text-stone-500 font-semibold">$ {item.price}</Text>
-      </View>
-      <Image source={{ uri: item.img }} className="w-24 h-24 rounded-full" resizeMode="cover" />
-    </TouchableOpacity>
+    <Link href={`/(modals)/item/${item.id}`} asChild>
+      <TouchableOpacity className="px-4 flex flex-row justify-between items-center my-2">
+        <View className="flex flex-1 my-4 mr-8">
+          <Text className="text-lg font-semibold text-neutral-600">{item.name}</Text>
+          <Text className="text-sm text-[#6e6d72] font-semibold">{item.info}</Text>
+          <Text className="text-base text-stone-500 font-semibold">$ {item.price}</Text>
+        </View>
+        <Image source={{ uri: item.img }} className="w-24 h-24 rounded-full" resizeMode="cover" />
+      </TouchableOpacity>
+    </Link>
   );
 
   return (
