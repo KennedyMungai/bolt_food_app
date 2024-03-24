@@ -146,8 +146,10 @@ const RestaurantDetails = ({ details }: Props) => {
               <TouchableOpacity
                 key={index}
                 onPress={() => selectCategory(index)}
-                className={activeButtonIndex === index ? '' : ''}>
-                <Text className={activeButtonIndex === index ? '' : ''}>{food.category}</Text>
+                className={activeButtonIndex === index ? 'px-2 py-1' : 'px-2 py-1'}>
+                <Text className={activeButtonIndex === index ? 'font-bold text-base' : 'text-base'}>
+                  {food.category}
+                </Text>
               </TouchableOpacity>
             ))}
           </ScrollView>
