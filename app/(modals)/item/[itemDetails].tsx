@@ -1,9 +1,12 @@
+import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 
 const ItemDetails = () => {
+  const { itemDetails: itemId } = useLocalSearchParams();
+
   return (
-    <SafeAreaView className="px-2 pt-28">
+    <SafeAreaView>
       <View>
         <Text>ItemDetails</Text>
       </View>
