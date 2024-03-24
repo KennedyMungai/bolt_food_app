@@ -59,7 +59,7 @@ export default function RootLayout() {
           presentation: 'modal',
           animation: 'slide_from_bottom',
           animationDuration: 300,
-          headerRight: () => (
+          headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <Ionicons
                 name="close-outline"
@@ -69,11 +69,13 @@ export default function RootLayout() {
                   color: 'black',
                   backgroundColor: '#FFFFFF95',
                   borderRadius: 20,
-                  padding: 10,
+                  padding: 5,
                 }}
               />
             </TouchableOpacity>
           ),
+          headerTransparent: true,
+          headerTitle: '',
         }}
       />
     </Stack>
