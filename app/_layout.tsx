@@ -1,7 +1,7 @@
 import '../global.css';
 
 import { Ionicons } from '@expo/vector-icons';
-import { Stack, useNavigation } from 'expo-router';
+import { Link, Stack, useNavigation } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 
 export const unstable_settings = {
@@ -33,6 +33,23 @@ export default function RootLayout() {
                 }}
               />
             </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <Link href="/(tabs)/search" asChild>
+              <TouchableOpacity>
+                <Ionicons
+                  name="search-outline"
+                  size={30}
+                  style={{
+                    marginRight: 20,
+                    color: 'black',
+                    backgroundColor: '#FFFFFF95',
+                    borderRadius: 20,
+                    padding: 5,
+                  }}
+                />
+              </TouchableOpacity>
+            </Link>
           ),
         }}
       />
